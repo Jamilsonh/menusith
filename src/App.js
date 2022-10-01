@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { GlobalStyle } from './global';
+import {
+  Route,
+  Routes,
+} from "react-router-dom";
+import Screen1 from './components/Screens/MalgusScreen';
+import Screen2 from './components/Screens/NihilusScreen';
+import Screen3 from './components/Screens/RevanScreen';
+import Screen4 from './components/Screens/BaneScreen';
+import Menu from './components/Menu';
+import submenu from './menu';
 
-function App() {
+
+
+export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path='/' element={<Screen1/>} />
+        <Route path='/malgus' element={<Screen1/>} />
+        <Route path='/nihilus' element={<Screen2/>} />
+        <Route path='/revan' element={<Screen3/>} />
+        <Route path='/bane' element={<Screen4/>} />
+      </Routes> 
+      <Menu menuItems={submenu}/>
+      <GlobalStyle/>
     </div>
   );
 }
 
-export default App;
